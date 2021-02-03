@@ -3,10 +3,22 @@ for details on configuring this project to bundle and minify static web assets. 
 * {
     font-family: 'Coustard', serif;
 }
+.logo {
+    position: absolute;
+    z-index: 1000;
+    max-height: 60px;
+    max-width: 100%;
+    overflow: hidden;
+}
 body {
     background-color: #eefbf5;
+    min-height: 75rem;
+    padding-top: 7.5rem;
 }
 
+.navbar {
+    margin-bottom: 50px !important;
+}
 nav {
     font-size: x-large;
 
