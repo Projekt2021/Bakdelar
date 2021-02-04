@@ -5,8 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Bakdelar.Classes;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
-namespace Webshop_Bakning.Pages
+namespace Bakdelar.Pages
 {
     public class PrivacyModel : PageModel
     {
@@ -19,6 +22,21 @@ namespace Webshop_Bakning.Pages
 
         public void OnGet()
         {
+
+            var cookie = Request.Cookies["tempCookie"];
+            if (cookie == null || cookie == "")
+            {
+                ShoppingBasketData basketData = new ShoppingBasketData
+                {
+                    ShoppingItems = new List<Item>() { new Item("Form", 10), new Item("Skål", 20) }
+                };
+                string serializedBasket = JsonSerializer.Serialize(basketData);
+                Response.Cookies.Append("tempCookie", serializedBasket);
+            }
+            else
+            {
+                Response.Cookies.Append("tempCookie", "");
+            }
         }
     }
 }

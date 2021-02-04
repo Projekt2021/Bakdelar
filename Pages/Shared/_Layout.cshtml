@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Webshop_Bakning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>@ViewData["Title"] - Bakdelar</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Coustard&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,26 +15,6 @@
 <body>
     <div>
         <header>
-            <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Webshop_Bakning</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        -->
             <nav class="navbar navbar-expand-lg navbar-light mx-auto shadow-sm p-3 mb-5 fixed-top" style="background-color: #DE6767;">
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
@@ -45,13 +25,13 @@
                 </ul>
                 <ul class="navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                     <li class="navbar-nav">
-                        <a class="nav-item nav-link active navbar-text" href="#">Hem</a>
+                        <a class="nav-item nav-link active navbar-text" href="/">Hem</a>
                     </li>
                     <li class="navbar-nav">
-                        <a class="nav-item nav-link navbar-text" href="#">Kategorier</a>
+                        <a class="nav-item nav-link navbar-text" href="Categories">Kategorier</a>
                     </li>
                     <li class="navbar-nav">
-                        <a class="nav-item nav-link navbar-text" href="#">Kassa</a>
+                        <a class="nav-item nav-link navbar-text" href="Checkout">Kassa</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -66,16 +46,12 @@
                             <div class="dropdown-menu">
                                 <h6 class="dropdown-header">Varukorg</h6>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Vara 1</a>
-                                <a class="dropdown-item" href="#">Vara 2</a>
-                                <a class="dropdown-item" href="#">Vara 3</a>
+                                <partial name="_ShoppingBasket.cshtml" />
                                 <div class="dropdown-divider"></div>
-                                <h6 class="dropdown-header">Total: x kr</h6>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Till kassan</a>
+                                <a class="dropdown-item" href="Checkout">Till kassan</a>
                             </div>
                         </div>
-                        
+
                     </li>
                 </ul>
             </nav>
@@ -84,9 +60,12 @@
     </div>
 
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        <div class="d-flex justify-content-center">
+            <main role="main" class="mx-auto" stype="width: 100%;">
+                @RenderBody()
+            </main>
+        </div>
+
     </div>
 
     <footer class="border-top footer text-muted">

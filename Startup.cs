@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Webshop_Bakning
+namespace Bakdelar
 {
     public class Startup
     {
@@ -24,6 +24,7 @@ namespace Webshop_Bakning
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

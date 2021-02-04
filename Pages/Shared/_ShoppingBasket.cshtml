@@ -1,0 +1,22 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor;
+@using Bakdelar.Classes;
+@{
+    var serializedBasket = httpContextAccessor.HttpContext.Request.Cookies["tempCookie"];
+    if (serializedBasket == null || serializedBasket == string.Empty)
+    {
+        <a class="dropdown-item" href="#">Tomt!</a>
+    }
+    else
+    {
+        var basketItems = JsonSerializer.Deserialize<ShoppingBasketData>(serializedBasket);
+        double totalPrice = 0;
+        foreach (var item in basketItems.ShoppingItems)
+        {
+            totalPrice += item.ItemPrice;
+           <a class="dropdown-item" href="#">@item.ItemName</a>
+       }
+       
+       <div class="dropdown-divider"></div>
+       <h6 class="dropdown-header">Total: @totalPrice kr</h6>
+    }
+}
