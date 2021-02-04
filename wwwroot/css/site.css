@@ -12,15 +12,15 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 
-
-
-.slogan-font {
+#slogan-font {
     font-family: 'Barlow Condensed' !important, sans-serif;
+    font-size: 2rem;
     color: #abd0b9 !important;
 }
 
-.brand-font {
+#brand-font {
     color: #dac5ce !important;
+    font-size: 4rem;
     font-family: 'Coustard' !important, serif;
 }
 #body {
@@ -42,8 +42,7 @@ span{
 }
 body {
     background-color: #eefbf5;
-    min-height: 70rem;
-    padding-top: 6.6rem;
+    padding-top: 5.1rem;
 }
 
 .navbar {
@@ -70,7 +69,7 @@ a {
 }
 
 .material-icons{
-    font-size: 50px;
+    font-size: 25px;
 }
 
 #dropdown-basket:hover > .dropdown-menu {
@@ -123,14 +122,3 @@ html {
   min-height: 100%;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
