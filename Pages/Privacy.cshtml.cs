@@ -23,20 +23,20 @@ namespace Bakdelar.Pages
         public void OnGet()
         {
 
-            var cookie = Request.Cookies["tempCookie"];
-            if (cookie == null || cookie == "")
-            {
-                ShoppingBasketData basketData = new ShoppingBasketData
-                {
-                    ShoppingItems = new List<Item>() { new Item("Form", 10, 1), new Item("Skål", 20, 2) }
-                };
-                string serializedBasket = JsonSerializer.Serialize(basketData);
-                Response.Cookies.Append("tempCookie", serializedBasket);
-            }
-            else
-            {
-                Response.Cookies.Append("tempCookie", "");
-            }
+            //var cookie = Request.Cookies["tempCookie"];
+            //if (cookie == null || cookie == "")
+            //{
+            //    ShoppingBasketData basketData = new ShoppingBasketData
+            //    {
+            //        ShoppingItems = new List<Item>() { new Item("Form", 10, 1), new Item("Skål", 20, 2) }
+            //    };
+            //    string serializedBasket = JsonSerializer.Serialize(basketData);
+            //    Response.Cookies.Append("tempCookie", serializedBasket);
+            //}
+            //else
+            //{
+            //    Response.Cookies.Append("tempCookie", "");
+            //}
         }
     }
 }
