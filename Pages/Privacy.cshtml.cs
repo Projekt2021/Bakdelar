@@ -28,7 +28,7 @@ namespace Bakdelar.Pages
             {
                 ShoppingBasketData basketData = new ShoppingBasketData
                 {
-                    ShoppingItems = new List<Item>() { new Item("Form", 10), new Item("Skål", 20) }
+                    ShoppingItems = new List<Item>() { new Item("Form", 10, 1), new Item("Skål", 20, 2) }
                 };
                 string serializedBasket = JsonSerializer.Serialize(basketData);
                 Response.Cookies.Append("tempCookie", serializedBasket);

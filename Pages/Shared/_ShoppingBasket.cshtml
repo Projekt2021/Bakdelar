@@ -13,7 +13,7 @@
         foreach (var item in basketItems.ShoppingItems)
         {
             totalPrice += item.ItemPrice;
-           <a class="dropdown-item" href="#">@item.ItemName</a>
+           <a class="dropdown-item" href="/Item?id=@item.ItemID">@item.ItemName</a>
        }
        
        <div class="dropdown-divider"></div>
