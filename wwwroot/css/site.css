@@ -24,7 +24,7 @@ for details on configuring this project to bundle and minify static web assets. 
     font-family: 'Coustard' !important, serif;
 }
 #body {
-    background-image: url('../images/body-bg.jpg');
+    background-image: url('../images/body_bg.gif');
     width: 100%;
     height: auto;
     background-size: cover;
@@ -46,7 +46,7 @@ body {
 }
 
 .navbar {
-    background-image: url("../images/banner.jpg");
+    /*background-image: url("../images/banner.jpg");*/
     background-repeat: no-repeat; /* Determine what direction the image will repeat */
     background-position: left; /* Where the image will be positioned relative to "top, right, bottom, and/or left */
     background-attachment: fixed; /* use with "fixed" to make it scroll with page */
@@ -86,6 +86,16 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.linkcolor {
+    color: #ffffff !important;
+}
+
+.card {
+    border-radius: 1.25rem;
+    border: 5px solid #c7c7c7;
+    padding: 25px;
 }
 
 /* Sticky footer styles
