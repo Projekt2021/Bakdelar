@@ -3,6 +3,12 @@ for details on configuring this project to bundle and minify static web assets. 
 * {
     font-family: 'Coustard', serif;
 }
+#body {
+    background-image: url('../images/body-bg.jpg');
+    width: 100%;
+    height: auto;
+    background-size: cover;
+}
 span{
     cursor: default;
 }
@@ -20,6 +26,10 @@ body {
 }
 
 .navbar {
+    background-image: url("../images/banner.jpg");
+    background-repeat: no-repeat; /* Determine what direction the image will repeat */
+    background-position: left; /* Where the image will be positioned relative to "top, right, bottom, and/or left */
+    background-attachment: fixed; /* use with "fixed" to make it scroll with page */
     margin-bottom: 50px !important;
 }
 nav {
