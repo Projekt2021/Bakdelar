@@ -3,7 +3,12 @@
 @{
 }
 
+@if (Model.Error)
+{
+    <div class="bg-warning">Error! Invalid product id</div>
+}
+else
+{
 
-
-
-<h1>Här visas varan med id @Model.ItemID</h1>
+<h1>Från API : @ViewData["ProductDescription"];</h1>
+}
