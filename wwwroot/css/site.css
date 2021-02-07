@@ -24,11 +24,11 @@ for details on configuring this project to bundle and minify static web assets. 
     font-family: 'Coustard' !important, serif;
 }
 #body {
-    background-image: url('../images/body-bg.jpg');
+    background-image: url(../images/body_bg.gif);
     width: 100%;
     height: auto;
     background-size: cover;
-    background-repeat: repeat
+    background-repeat: repeat;
 }
 span{
     cursor: default;
