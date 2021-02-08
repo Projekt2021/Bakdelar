@@ -7,10 +7,15 @@ namespace Bakdelar.Classes
 {
     public class ProductFromJson
     {
-
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Picture { get; set; }
+#nullable enable
+        public int Id { get; set; }
+#nullable disable
+        public string ProductName { get; set; }
+        public string ProductDescription { get; set; }
+        public string ImageLink { get; set; }
         public double SalePrice { get; set; }
+#nullable enable
+        public string? Secret { get; set; } = null;
+
     }
 }

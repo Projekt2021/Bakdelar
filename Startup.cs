@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Bakdelar
@@ -25,6 +26,10 @@ namespace Bakdelar
         {
             services.AddRazorPages();
             services.AddHttpContextAccessor();
+            services.AddScoped(sp => new HttpClient
+            {
+                BaseAddress = new Uri("https://localhost")
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

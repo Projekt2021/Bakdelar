@@ -1,4 +1,21 @@
 ﻿@page
 @model Bakdelar.Pages.Admin.AddProductModel
 @{
+    if(Model.ProductID != "" || Model.ProductID != null)
+    {
+        <h1>Post worked!</h1>
+    }
 }
+<form method="post">
+    <label for="productName">Produktnamn:</label>
+    <input type="text" required="required" asp-for="Product.ProductName" name="productName"><br />
+    <label for="productDescription">Produktbeskrivning:</label>
+    <input type="text" required="required" asp-for="Product.ProductDescription" name="productDescription"><br />
+    <label for="imageLink">Produktbild:</label>
+    <input type="text" required="required" asp-for="Product.ImageLink" name="imageLink"><br />
+    <label for="salePrice">Produktpris:</label>
+    <input type="number" required="required" step="0.01" asp-for="Product.SalePrice" name="salePrice"><br />
+    <label for="productName">Produkt secret:</label>
+    <input type="password" required="required" asp-for="Product.Secret" name="secret"><br />
+    <input type="submit">
+</form>

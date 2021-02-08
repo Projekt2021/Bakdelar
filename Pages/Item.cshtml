@@ -1,4 +1,4 @@
-﻿@page "{id?}";
+﻿@page "{Id:int}"
 @model Bakdelar.Pages.ItemModel
 @{
 }
@@ -10,5 +10,5 @@
 else
 {
 
-<h1>Från API : @ViewData["ProductDescription"];</h1>
+<h1>Added item: @ViewData["ProductDescription"];</h1>
 }

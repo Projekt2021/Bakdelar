@@ -29,8 +29,8 @@ namespace Bakdelar.Pages
 
 
                 Classes.ProductFromJson jsonProduct = JsonSerializer.Deserialize<Classes.ProductFromJson>(jsonText, options);
-                ViewData["Title"] = jsonProduct.Name;
-                ViewData["ProductDescription"] = "Vara: " + jsonProduct.Name + ", beskrivning: " + jsonProduct.Description;
+                ViewData["Title"] = jsonProduct.ProductName;
+                ViewData["ProductDescription"] = "Vara: " + jsonProduct.ProductName + ", beskrivning: " + jsonProduct.ProductDescription;
             }
             else
             {
