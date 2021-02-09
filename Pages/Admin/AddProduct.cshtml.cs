@@ -11,17 +11,19 @@ namespace Bakdelar.Pages.Admin
 {
     public class AddProductModel : PageModel
     {
+
         [BindProperty(SupportsGet = true)]
+        public string ImageLink { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+
         public string ProductID { get; set; }
-        public void OnGet()
-        {
-            if(ProductID != string.Empty || ProductID != null)
-            {
-                ViewData["ProductID"] = ProductID;
-            }
-        }
+
         [BindProperty]
         public Classes.ProductFromJson Product { get; set; }
+        public void OnGet()
+        {
+        }
 
         public async Task<IActionResult> OnPostAsync()
         {

@@ -1,7 +1,7 @@
-﻿@page
+﻿@page  "{ImageLink?}"
 @model Bakdelar.Pages.Admin.AddProductModel
 @{
-    if(Model.ProductID != "" || Model.ProductID != null)
+    if (Model.ProductID != "" || Model.ProductID != null)
     {
         <h1>Post worked!</h1>
     }
@@ -12,7 +12,7 @@
     <label for="productDescription">Produktbeskrivning:</label>
     <input type="text" required="required" asp-for="Product.ProductDescription" name="productDescription"><br />
     <label for="imageLink">Produktbild:</label>
-    <input type="text" required="required" asp-for="Product.ImageLink" name="imageLink"><br />
+    <input type="text" required="required" asp-for="Product.ImageLink" name="imageLink" value="@Model.ImageLink"><br />
     <label for="salePrice">Produktpris:</label>
     <input type="number" required="required" step="0.01" asp-for="Product.SalePrice" name="salePrice"><br />
     <label for="productName">Produkt secret:</label>
