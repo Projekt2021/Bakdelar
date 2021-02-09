@@ -24,7 +24,7 @@ namespace Bakdelar.Pages
         {
 
 
-            var jsonText = GetProductInfo("https://localhost:44347/api/Products/");
+            var jsonText = GetProductInfo("https://localhost:44347/api/Products?adminToken=dXNlcmlzYWRtaW5zaG93ZnVsbHByb2R1Y3Q=");
             if (jsonText != string.Empty)
             {
                 var options = new JsonSerializerOptions

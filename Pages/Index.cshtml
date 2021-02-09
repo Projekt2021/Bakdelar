@@ -12,7 +12,7 @@ else
     <div class="d-flex flex-wrap justify-content-lg-around">
         @foreach (var product in Model.Products)
         {
-            <span class="border">@product.ProductName</span>
+        <a href="/Item/@product.Id"><span class="border">@product.ProductName</span></a>
 
         }
     </div>
