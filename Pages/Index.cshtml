@@ -10,10 +10,10 @@
 }
 else@*product.ProductImages.FirstOrDefault().ImageUrl*@
 {
-    <div class="d-flex flex-wrap justify-content-center card-group">
+    <div class="d-flex flex-wrap justify-content-center">
         @foreach (var product in Model.Products)
         {
-            <div class="card text-monospace" style="width: 15rem; ">
+            <div class="card text-monospace mx-4 my-2" style="width: 15rem; ">
                 <img class="card-img-top" src="@product.ProductImage.ImageUrl" alt="Product image" style="height: 10vw;">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">@product.ProductName</h5>
