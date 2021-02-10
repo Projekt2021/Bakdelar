@@ -10,17 +10,17 @@
 }
 else@*product.ProductImages.FirstOrDefault().ImageUrl*@
 {
-    <div class="d-flex flex-wrap justify-content-lg-center">
+    <div class="d-flex flex-wrap justify-content-center card-group">
         @foreach (var product in Model.Products)
         {
-            <div class="card m-lg-4" style="width: 15rem; ">
-                <img class="card-img-top" src="@product.ProductImage.ImageUrl" alt="Product image">
-                <div class="card-body">
+            <div class="card text-monospace" style="width: 15rem; ">
+                <img class="card-img-top" src="@product.ProductImage.ImageUrl" alt="Product image" style="height: 10vw;">
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title">@product.ProductName</h5>
                     <p class="card-text">@product.ProductDescription</p>
-                    <a href="~/Item/@product.Id" class="btn btn-primary">Visa detaljer</a>
+                        <a href="~/Item/@product.Id" class="btn btn-primary mt-auto">Visa detaljer</a>
+                    </div>
                 </div>
-            </div>
 
         }
     </div>

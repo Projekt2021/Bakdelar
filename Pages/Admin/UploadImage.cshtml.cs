@@ -88,7 +88,7 @@ namespace Bakdelar.Pages.Admin
 
 
             string ImageID = postedProduct.ProductImageID.ToString();
-            return RedirectToPage("UploadImage", new { ProductImageID = ImageID });
+            return RedirectToPage("AddProduct", new { ProductImageID = ImageID });
 
         }
     }
