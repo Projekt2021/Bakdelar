@@ -14,7 +14,7 @@ namespace Bakdelar.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         public bool Error { get; set; } = false;
-        public List<Classes.ProductFromJson> Products { get; set; }
+        public List<Classes.Product> Products { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -32,7 +32,7 @@ namespace Bakdelar.Pages
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 };
 
-                Products = JsonSerializer.Deserialize<List<Classes.ProductFromJson>>(jsonText, options);
+                Products = JsonSerializer.Deserialize<List<Classes.Product>>(jsonText, options);
             }
             else
             {

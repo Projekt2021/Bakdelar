@@ -16,7 +16,7 @@ namespace Bakdelar.Pages
         public string Id { get; set; }
         public bool Error { get; set; } = false;
 
-        public Classes.ProductFromJson Product { get; set; }
+        public Classes.Product Product { get; set; }
         public void OnGet()
         {
 
@@ -30,7 +30,7 @@ namespace Bakdelar.Pages
                 };
 
 
-                Product = JsonSerializer.Deserialize<Classes.ProductFromJson>(jsonText, options);
+                Product = JsonSerializer.Deserialize<Classes.Product>(jsonText, options);
                 ViewData["Title"] = Product.ProductName;
             }
             else

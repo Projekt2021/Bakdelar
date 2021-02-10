@@ -1,9 +1,14 @@
-﻿@page
+﻿@page "{ProductImageID?}"
 @model Bakdelar.Pages.Admin.UploadImageModel
 @{
 }
+
+<h1>Upload image:</h1>
 <form method="post"enctype="multipart/form-data">
-    <label for="img">Select image:</label>
+    <label for="img">Select image:</label><br />
     <input asp-for="Image" type="file" id="img" name="Image" accept="image/*">
     <input type="submit">
 </form>
+
+
+

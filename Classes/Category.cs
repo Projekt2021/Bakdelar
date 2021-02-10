@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Bakdelar.Classes
 {
-    public class ShoppingBasketData
+    public class Category
     {
-        public List<Item> ShoppingItems { get; set; }
+        public int CategoryID { get; set; }
+        public string CategoryText { get; set; }
     }
 }
