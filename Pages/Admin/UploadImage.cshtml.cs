@@ -40,9 +40,11 @@ namespace Bakdelar.Pages.Admin
                 var options = new JsonSerializerOptions
                 {
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    //camelcase so the properties gets mapped correctly
                 };
 
                 Products = JsonSerializer.Deserialize<List<Classes.Product>>(jsonText, options);
+                //gets all products from the api and deserialized into a list of products
             }
             else
             {
@@ -56,6 +58,7 @@ namespace Bakdelar.Pages.Admin
             try
             {
                 jsonText = webClient.DownloadString(jsonDataURL);
+                //downloads the json file from the url
             }
             catch (Exception e)
             {
@@ -67,27 +70,37 @@ namespace Bakdelar.Pages.Admin
 
         public async Task<IActionResult> OnPostAsync()
         {
+            //where the image can be loaded from in a img tag
             var partialFilePath = "\\images\\products\\" + Image.FileName;
+
+            //where the file is to be saved
             var file = _environment.WebRootPath + "\\images\\products\\" + Image.FileName;
             using (var fileStream = new FileStream(file, FileMode.Create))
             {
                 await Image.CopyToAsync(fileStream);
             }
+            //api url for posting the productimage so its saved into the database
             string postURL = "https://localhost:44347/api/ProductImages";
             using HttpClient httpClient = new HttpClient();
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
+            //the partial path is stored in a product image object
             Classes.ProductImage productImage = new Classes.ProductImage() { ImageUrl = partialFilePath };
             //httpClient
+
+            //the productimage is posted to the api
             var response = await httpClient.PostAsJsonAsync(postURL, productImage);
-            Classes.ProductImage postedProduct = await response.Content.ReadFromJsonAsync<Classes.ProductImage>();
+
+            //the posted product image is read to get the id it was assigned
+            Classes.ProductImage postedProductImage = await response.Content.ReadFromJsonAsync<Classes.ProductImage>();
 
 
 
-            string ImageID = postedProduct.ProductImageID.ToString();
+            string ImageID = postedProductImage.ProductImageID.ToString();
+
+            //redirect to addproduct/ImageID
             return RedirectToPage("AddProduct", new { ProductImageID = ImageID });
 
         }

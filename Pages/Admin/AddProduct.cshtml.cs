@@ -28,7 +28,8 @@ namespace Bakdelar.Pages.Admin
         {
             using HttpClient httpClient = new HttpClient();
             ProductImages = httpClient.GetFromJsonAsync<List<Classes.ProductImage>>("https://localhost:44347/api/ProductImages").Result;
-            ProductImages = ProductImages.Where(image => image.ProductID == null).ToList();
+            //gets the product images from the api
+            //ProductImages = ProductImages.Where(image => image.ProductID == null).ToList();
             Categories = httpClient.GetFromJsonAsync<List<Classes.Category>>("https://localhost:44347/api/Categories").Result;
         }
 
@@ -41,15 +42,21 @@ namespace Bakdelar.Pages.Admin
             {
                 return Page();
             }
-            //httpClient
+
+
             Classes.ProductImage selectedProductImage = httpClient.GetFromJsonAsync<Classes.ProductImage>(productImageURL + ProductImageID).Result;
 
             var response = await httpClient.PostAsJsonAsync(postProductURL, Product);
             Classes.Product postedProduct = response.Content.ReadFromJsonAsync< Classes.Product>().Result;
             ProductID = postedProduct.Id;
+
+
+            //code below is not working as intended at the moment (it does not set the product id)
             selectedProductImage.ProductID = ProductID;
-            
             await httpClient.PostAsJsonAsync(productImageURL + ProductImageID, selectedProductImage);
+
+
+            //redirects to the newly added item 
             return RedirectToPage($"/Item", new { Id = postedProduct.Id });
         }
     }

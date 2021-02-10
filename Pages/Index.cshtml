@@ -11,7 +11,7 @@
 else@*product.ProductImages.FirstOrDefault().ImageUrl*@
 {
     <div class="d-flex flex-wrap justify-content-center">
-        @foreach (var product in Model.Products)
+        @foreach (var product in Model.Products) // lägger till kort med varor på hemskärmen
         {
             <div class="card text-monospace mx-4 my-2" style="width: 15rem; ">
                 <img class="card-img-top" src="@product.ProductImage.ImageUrl" alt="Product image" style="height: 10vw;">
