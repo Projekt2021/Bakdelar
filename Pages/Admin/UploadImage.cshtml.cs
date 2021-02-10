@@ -23,49 +23,29 @@ namespace Bakdelar.Pages.Admin
         }
         [BindProperty]
         public Classes.ProductImage ProductImage { get; set; }
+
+
         [BindProperty]
         public IFormFile Image { get; set; }
+
+
+
         [BindProperty(SupportsGet = true)]
         public string ProductImageID { get; set; }
 
-        public int AssignID { get; set; }
         public List<Classes.Product> Products { get; set; }
 
-        public string AddProductLink { get; set; }
+
+
+
+
         public void OnGet()
         {
-            var jsonText = GetProductInfo("https://localhost:44347/api/Products?adminToken=dXNlcmlzYWRtaW5zaG93ZnVsbHByb2R1Y3Q=");
-            if (jsonText != string.Empty)
-            {
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    //camelcase so the properties gets mapped correctly
-                };
-
-                Products = JsonSerializer.Deserialize<List<Classes.Product>>(jsonText, options);
-                //gets all products from the api and deserialized into a list of products
-            }
-            else
-            {
-            }
+           //var getProductsURL = "https://localhost:44347/api/Products";
+           //using HttpClient httpClient = new HttpClient();
+           //Products = httpClient.GetFromJsonAsync<List<Classes.Product>>(getProductsURL).Result;
         }
 
-        string GetProductInfo(string jsonDataURL)
-        {
-            string jsonText = "";
-            using var webClient = new WebClient();
-            try
-            {
-                jsonText = webClient.DownloadString(jsonDataURL);
-                //downloads the json file from the url
-            }
-            catch (Exception e)
-            {
-                Redirect("/");
-            }
-            return jsonText;
-        }
 
 
         public async Task<IActionResult> OnPostAsync()
