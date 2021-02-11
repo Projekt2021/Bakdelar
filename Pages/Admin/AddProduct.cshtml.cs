@@ -21,9 +21,12 @@ namespace Bakdelar.Pages.Admin
         public string ProductImageID { get; set; }
         public List<Classes.ProductImage> ProductImages { get; set; }
         public List<Classes.Category> Categories { get; set; }
-
         [BindProperty]
         public Classes.Product Product { get; set; }
+
+
+
+
         public void OnGet()
         {
             using HttpClient httpClient = new HttpClient();
@@ -35,6 +38,7 @@ namespace Bakdelar.Pages.Admin
 
         public async Task<IActionResult> OnPostAsync()
         {
+            //api urls for posting and getting
             string postProductURL = "https://localhost:44347/api/Products";
             string productImageURL = "https://localhost:44347/api/ProductImages/";
             using HttpClient httpClient = new HttpClient();
@@ -43,17 +47,22 @@ namespace Bakdelar.Pages.Admin
                 return Page();
             }
 
-
+            //the product image that was selected from the form
             Classes.ProductImage selectedProductImage = httpClient.GetFromJsonAsync<Classes.ProductImage>(productImageURL + ProductImageID).Result;
 
+            //store the response to read the contents later
             var response = await httpClient.PostAsJsonAsync(postProductURL, Product);
+
+            //store the posted product to redirect to the product page for the added product
             Classes.Product postedProduct = response.Content.ReadFromJsonAsync< Classes.Product>().Result;
             ProductID = postedProduct.Id;
 
 
             //code below is not working as intended at the moment (it does not set the product id)
             selectedProductImage.ProductID = ProductID;
-            await httpClient.PostAsJsonAsync(productImageURL + ProductImageID, selectedProductImage);
+
+            //store the productID in the the product image 
+            await httpClient.PutAsJsonAsync(productImageURL + ProductImageID, selectedProductImage);
 
 
             //redirects to the newly added item 
